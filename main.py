@@ -6,11 +6,6 @@ url = 'http://1.1.1.1:10080/cgi-bin/adeflogin.cgi'
 auth_data = {'name' : 'yourID(u~~~~~~~)', 'pass' : 'your password' }
 d = urllib.parse.urlencode(auth_data)
 d = d.encode('Shift-JIS')
-"""
-pro = urllib.request.ProxyHandler({})
-opener = urllib.request.build_opener(pro)
-urllib.request.install_opener(opener)
-"""
 header = {"Request URI":"/cgi-bin/adeflogin.cgi"}
 req = urllib.request.Request(url,d,header,method = "POST")
 print('ready')
