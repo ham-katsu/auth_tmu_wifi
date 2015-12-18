@@ -2,19 +2,18 @@
 import urllib.parse
 import urllib.request
 import time
-url = 'http://1.1.1.1/cgi-bin/adeflogin.cgi:10080'
-auth_data = {'name' : 'yourid', 'pass' : 'yourpass' }
+url = 'http://1.1.1.1:10080/cgi-bin/adeflogin.cgi'
+auth_data = {'name' : 'yourID(u~~~~~~~)', 'pass' : 'your password' }
 d = urllib.parse.urlencode(auth_data)
-d = d.encode('utf-8')
-
-httpshandler = urllib.request.HTTPSHandler()
+d = d.encode('Shift-JIS')
+"""
 pro = urllib.request.ProxyHandler({})
-opener = urllib.request.build_opener(pro,httpshandler)
+opener = urllib.request.build_opener(pro)
 urllib.request.install_opener(opener)
-
-req = urllib.request.Request(url,d,method = "POST")
+"""
+header = {"Request URI":"/cgi-bin/adeflogin.cgi"}
+req = urllib.request.Request(url,d,header,method = "POST")
 print('ready')
-req.add_header("User-Agent","Mozilla/5.0 (Macintosh) AppleWebkit() Chrome/47.0.2526.106")
 while(True):
     res = urllib.request.urlopen(req)
     print(res.getcode())
