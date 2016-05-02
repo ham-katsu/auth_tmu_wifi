@@ -1,3 +1,4 @@
+#!/usr/local/bin/python3.4
 # -*- coding: utf-8 -*-
 import urllib.parse
 import urllib.request
